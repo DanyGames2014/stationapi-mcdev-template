@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+build/
+out/
+classes/
+
+# Eclipse
+*.launch
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Cope
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# MacOS
+*.DS_Store
+
+run/*
+# Remove the following line to remove server.properties from your project.
+!server.properties

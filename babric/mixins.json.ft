@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "${MAIN_CLASS.packageName}.mixin",
+  "compatibilityLevel": "JAVA_${JAVA_VERSION}",
+  "mixins": [
+  ],
+  "server": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

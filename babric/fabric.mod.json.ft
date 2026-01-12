@@ -1,0 +1,33 @@
+#set ( $d = "$" )
+{
+  "schemaVersion": 1,
+  "id": "${MOD_ID}",
+  "version": "${d}{version}",
+
+  "name": "${MOD_NAME}",
+  "description": "${DESCRIPTION}",
+  "authors": [],
+  "contact": {},
+
+  "license": "${LICENSE.id}",
+  "icon": "assets/${MOD_ID}/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": ["${MAIN_CLASS}"]
+  },
+
+#if (${USE_MIXINS})
+  "mixins": [
+    "${MOD_ID}.mixins.json"
+  ],
+#end
+
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3"
+    "fabricloader": ">=${LOADER_VERSION}",
+#if (${USE_STATIONAPI})
+    "fabric-api": "${STATIONAPI_VERSION}",
+#end
+  }
+}

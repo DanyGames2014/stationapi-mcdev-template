@@ -1,0 +1,45 @@
+org.gradle.jvmargs=-Xmx2G
+org.gradle.daemon=false
+fabric.loom.disableMinecraftVerification=true
+
+# Fabric Properties
+	minecraft_version=${MC_VERSION}
+	yarn_mappings=b1.7.3+e0778a3
+	loader_version=${LOADER_VERSION}
+
+# Mod Properties
+	mod_version = ${BUILD_COORDS.version}
+	maven_group = ${BUILD_COORDS.groupId}
+	archives_base_name = ${BUILD_COORDS.artifactId}
+
+#if (${USE_AW})
+	# Access Widener
+	accesswidener_name=${MOD_ID}.accesswidener
+#end
+#if (${USE_MODRINTH_PUBLISHING})
+	# Modrinth Publishing
+	modrinth_slug=${MODRINTH_SLUG}
+	modrinth_version_name=${MODRINTH_VERSION_NAME}
+#end
+
+# Dependencies
+#if (${USE_STATIONAPI})
+	stapi_version=${STATIONAPI_VERSION}
+#end
+	glass_networking_version=1.0.7
+	gcapi_version=3.2.5
+#if (${USE_STATIONAPI})
+	alwaysmoreitems_version=1.7.1
+#end
+	modmenu_version=1.1.1
+#if (${USE_STATIONAPI})
+	bhcreative_version=0.4.9
+	spawneggs_version=1.11.0
+#end
+	retrocommands_version=0.5.10
+	retroauth_version=1.1.1
+ 	unitweaks_version=0.25.1
+#if (${USE_STATIONAPI})
+	whatsthis_version=1.0.0-rc7
+    debugutilities_version=1.0.0-alpha.1
+#end

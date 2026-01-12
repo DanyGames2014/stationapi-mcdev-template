@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "group": "mod",
+  "properties": [
+    {
+      "name": "BUILD_COORDS",
+      "type": "build_system_coordinates",
+      "order": 20
+    },
+    {
+      "name": "MC_VERSION",
+      "type": "semantic_version",
+      "forceDropdown": true,
+      "options": [
+        "b1.7.3"
+      ],
+      "default": 0,
+      "order": 0
+    },
+    {
+      "name": "LOOM_VERSION",
+      "type": "maven_artifact_version",
+      "parameters": {
+        "sourceUrl": "https://maven.fabricmc.net/net/fabricmc/fabric-loom/maven-metadata.xml"
+      },
+      "forceDropdown": true,
+      "order": 1
+    },
+    {
+      "name": "BOOM_VERSION",
+      "type": "maven_artifact_version",
+      "parameters": {
+        "sourceUrl": "https://maven.glass-launcher.net/babric/babric/babric-loom-extension/maven-metadata.xml"
+      },
+      "forceDropdown": true,
+      "order": 1
+    },
+    {
+      "label": "BINY Version",
+      "name": "BINY_VERSION",
+      "type": "maven_artifact_version",
+      "parameters": {
+        "sourceUrl": "https://maven.glass-launcher.net/releases/net/glasslauncher/biny/maven-metadata.xml"
+      },
+      "forceDropdown": true,
+      "order": 1
+    },
+    {
+      "name": "LOADER_VERSION",
+      "type": "maven_artifact_version",
+      "parameters": {
+        "sourceUrl": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/maven-metadata.xml"
+      },
+      "forceDropdown": true,
+      "order": 1
+    },
+    {
+      "name": "USE_STATIONAPI",
+      "label": "Use StationAPI",
+      "type": "boolean",
+      "default": true,
+      "order": 2
+    },
+    {
+      "name": "STATIONAPI_VERSION",
+      "label": "",
+      "type": "maven_artifact_version",
+      "parameters": {
+        "sourceUrl": "https://maven.glass-launcher.net/releases/net/modificationstation/StationAPI/maven-metadata.xml"
+      },
+      "forceDropdown": true,
+      "visible": {
+        "dependsOn": [
+          "USE_STATIONAPI"
+        ],
+        "condition": "$USE_STATIONAPI == 'true'"
+      },
+      "order": 2
+    },
+    {
+      "name": "USE_MIXINS",
+      "type": "boolean",
+      "remember": "babric.USE_MIXINS",
+      "default": true,
+      "order": 3
+    },
+    {
+      "name": "USE_AW",
+      "type": "boolean",
+      "default": true,
+      "order": 3
+    },
+    {
+      "name": "UPDATE_DEPENDENCIES",
+      "type": "boolean",
+      "default": true,
+      "order": 3
+    },
+    {
+      "name": "MOD_ID",
+      "type": "string",
+      "validator": "[a-z][a-z0-9]{1,63}",
+      "derives": {
+        "parents": [
+          "PROJECT_NAME"
+        ],
+        "method": "replace",
+        "parameters": {
+          "regex": "[^a-z0-9]+",
+          "replacement": "",
+          "maxLength": 64,
+          "lowercase": true
+        }
+      },
+      "order": 4
+    },
+    {
+      "name": "MOD_NAME",
+      "type": "string",
+      "inheritFrom": "PROJECT_NAME",
+      "order": 4
+    },
+    {
+      "name": "CLASS_NAME",
+      "type": "string",
+      "validator": "[a-zA-Z][a-zA-Z0-9]{1,63}",
+      "derives": {
+        "parents": [
+          "PROJECT_NAME"
+        ],
+        "method": "replace",
+        "parameters": {
+          "regex": "[^a-zA-Z0-9]+",
+          "replacement": "",
+          "maxLength": 64,
+          "lowercase": true
+        }
+      },
+      "order": 4,
+      "visible": false
+    },
+    {
+      "name": "MAIN_CLASS",
+      "type": "class_fqn",
+      "derives": {
+        "parents": [
+          "BUILD_COORDS",
+          "CLASS_NAME"
+        ],
+        "method": "suggestClassName"
+      },
+      "order": 4
+    },
+    {
+      "name": "LICENSE",
+      "type": "license",
+      "order": 5
+    },
+    {
+      "label": "creator.ui.optional_settings.label",
+      "collapsible": true,
+      "default": true,
+      "groupProperties": [
+        {
+          "name": "DESCRIPTION",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "AUTHORS",
+          "type": "inline_string_list",
+          "default": ""
+        },
+        {
+          "name": "WEBSITE",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "order": 6
+    },
+    {
+      "label": "Modrinth Publishing",
+      "collapsible": true,
+      "default": true,
+      "groupProperties": [
+        {
+          "label": "Use Modrinth Publishing",
+          "name": "USE_MODRINTH_PUBLISHING",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "label": "Modrinth Slug",
+          "name": "MODRINTH_SLUG",
+          "type": "string",
+          "visible": {
+            "dependsOn": [
+              "USE_MODRINTH_PUBLISHING"
+            ],
+            "condition": "$USE_MODRINTH_PUBLISHING == 'true'"
+          }
+        },
+        {
+          "label": "Modrinth Version Name",
+          "name": "MODRINTH_VERSION_NAME",
+          "type": "string",
+          "inheritFrom": "MOD_NAME",
+          "visible": {
+            "dependsOn": [
+              "USE_MODRINTH_PUBLISHING"
+            ],
+            "condition": "$USE_MODRINTH_PUBLISHING == 'true'"
+          }
+        }
+      ],
+      "order": 7
+    },
+    {
+      "name": "JAVA_VERSION",
+      "type": "integer",
+      "order": 30,
+      "default": 17,
+      "visible": false
+    },
+    {
+      "name": "JDK",
+      "type": "jdk",
+      "order": 30,
+      "default": "JAVA_VERSION"
+    }
+  ],
+  "files": [
+    {
+      "template": "../Gradle.gitignore.ft",
+      "destination": ".gitignore",
+      "condition": "$USE_GIT"
+    },
+    {
+      "template": "../gradle-wrapper.properties.ft",
+      "destination": "gradle/wrapper/gradle-wrapper.properties",
+      "properties": {
+        "GRADLE_VERSION": "9.2.1"
+      }
+    },
+    {
+      "template": "build.gradle.ft",
+      "destination": "build.gradle",
+      "condition": "$LANGUAGE == 'Java'"
+    },
+    {
+      "template": "settings.gradle.ft",
+      "destination": "settings.gradle",
+      "condition": "$LANGUAGE == 'Java'"
+    },
+    {
+      "template": "gradle.properties.ft",
+      "destination": "gradle.properties"
+    },
+    {
+      "template": "fabric.mod.json.ft",
+      "destination": "src/main/resources/fabric.mod.json"
+    },
+    {
+      "template": "mixins.json.ft",
+      "destination": "src/main/resources/${MOD_ID}.mixins.json",
+      "condition": "$USE_MIXINS"
+    },
+    {
+      "template": "Initializer.java.ft",
+      "destination": "src/main/java/${MAIN_CLASS.path}.java",
+      "openInEditor": true
+    },
+    {
+      "template": "../licenses/${LICENSE.id}.txt.ft",
+      "destination": "LICENSE.txt"
+    }
+  ],
+  "finalizers": [
+    {
+      "type": "import_gradle_project"
+    },
+    {
+      "type": "run_gradle_tasks",
+      "tasks": [
+        "wrapper"
+      ]
+    },
+    {
+      "type": "run_gradle_tasks",
+      "tasks": [
+        "update"
+      ],
+      "condition": "$UPDATE_DEPENDENCIES"
+    },
+    {
+      "type": "git_add_all",
+      "condition": "$USE_GIT"
+    }
+  ]
+}
