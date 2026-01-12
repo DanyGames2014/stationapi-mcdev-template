@@ -1,0 +1,1 @@
+# StationAPI Template for the Minecraft Development IntelliJ Plugin
