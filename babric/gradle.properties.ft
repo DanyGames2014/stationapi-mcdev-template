@@ -14,7 +14,7 @@ fabric.loom.disableMinecraftVerification=true
 
 #if (${USE_AW})
 	# Access Widener
-	accesswidener_name=${MOD_ID}.accesswidener
+	accesswidener_name=${MOD_ID}
 #end
 #if (${USE_MODRINTH_PUBLISHING})
 	# Modrinth Publishing

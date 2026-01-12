@@ -9,12 +9,11 @@
     },
     {
       "name": "MC_VERSION",
-      "type": "semantic_version",
+      "type": "string",
       "forceDropdown": true,
       "options": [
         "b1.7.3"
       ],
-      "default": 0,
       "order": 0
     },
     {
@@ -27,6 +26,7 @@
       "order": 1
     },
     {
+      "label": "Boom Version",
       "name": "BOOM_VERSION",
       "type": "maven_artifact_version",
       "parameters": {
@@ -85,12 +85,14 @@
       "order": 3
     },
     {
+      "label": "Use AccessWidener",
       "name": "USE_AW",
       "type": "boolean",
       "default": true,
       "order": 3
     },
     {
+      "label": "Update Dependencies",
       "name": "UPDATE_DEPENDENCIES",
       "type": "boolean",
       "default": true,
@@ -167,12 +169,8 @@
           "default": ""
         },
         {
-          "name": "AUTHORS",
-          "type": "inline_string_list",
-          "default": ""
-        },
-        {
-          "name": "WEBSITE",
+          "label": "Author",
+          "name": "AUTHOR",
           "type": "string",
           "default": ""
         }
@@ -232,6 +230,14 @@
   ],
   "files": [
     {
+      "template": "../gradlew.bat.ft",
+      "destination": "gradlew.bat"
+    },
+    {
+      "template": "../gradlew.ft",
+      "destination": "gradlew"
+    },
+    {
       "template": "../Gradle.gitignore.ft",
       "destination": ".gitignore",
       "condition": "$USE_GIT"
@@ -245,13 +251,11 @@
     },
     {
       "template": "build.gradle.ft",
-      "destination": "build.gradle",
-      "condition": "$LANGUAGE == 'Java'"
+      "destination": "build.gradle"
     },
     {
       "template": "settings.gradle.ft",
-      "destination": "settings.gradle",
-      "condition": "$LANGUAGE == 'Java'"
+      "destination": "settings.gradle"
     },
     {
       "template": "gradle.properties.ft",
@@ -265,6 +269,20 @@
       "template": "mixins.json.ft",
       "destination": "src/main/resources/${MOD_ID}.mixins.json",
       "condition": "$USE_MIXINS"
+    },
+    {
+      "template": "accesswidener.ft",
+      "destination": "src/main/resources/${MOD_ID}.accesswidener",
+      "condition": "$USE_AW"
+    },
+    {
+      "template": "icon.png.ft",
+      "destination": "src/main/resources/assets/${MOD_ID}/icon.png"
+    },
+    {
+      "template": "en_US.lang.ft",
+      "destination": "src/main/resources/assets/${MOD_ID}/stationapi/lang/en_US.lang",
+      "condition": "$USE_STATIONAPI"
     },
     {
       "template": "Initializer.java.ft",

@@ -6,8 +6,14 @@
 
   "name": "${MOD_NAME}",
   "description": "${DESCRIPTION}",
-  "authors": [],
-  "contact": {},
+  "authors": [
+    "${AUTHOR}"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "",
+    "issues": ""
+  },
 
   "license": "${LICENSE.id}",
   "icon": "assets/${MOD_ID}/icon.png",
@@ -24,10 +30,10 @@
 #end
 
   "depends": {
-    "minecraft": "1.0.0-beta.7.3"
-    "fabricloader": ">=${LOADER_VERSION}",
+    "minecraft": "1.0.0-beta.7.3",
+    "fabricloader": ">=${d}{loader_version}",
 #if (${USE_STATIONAPI})
-    "fabric-api": "${STATIONAPI_VERSION}",
+    "stationapi": ">=${d}{stationapi_version}",
 #end
   }
 }
