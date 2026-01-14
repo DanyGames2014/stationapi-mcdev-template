@@ -23,7 +23,8 @@
         "sourceUrl": "https://maven.fabricmc.net/net/fabricmc/fabric-loom/maven-metadata.xml"
       },
       "forceDropdown": true,
-      "order": 1
+      "order": 1,
+      "remember": false
     },
     {
       "label": "Boom Version",
@@ -33,7 +34,8 @@
         "sourceUrl": "https://maven.glass-launcher.net/babric/babric/babric-loom-extension/maven-metadata.xml"
       },
       "forceDropdown": true,
-      "order": 1
+      "order": 1,
+      "remember": false
     },
     {
       "label": "BINY Version",
@@ -43,7 +45,8 @@
         "sourceUrl": "https://maven.glass-launcher.net/releases/net/glasslauncher/biny/maven-metadata.xml"
       },
       "forceDropdown": true,
-      "order": 1
+      "order": 1,
+      "remember": false
     },
     {
       "name": "LOADER_VERSION",
@@ -52,14 +55,16 @@
         "sourceUrl": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/maven-metadata.xml"
       },
       "forceDropdown": true,
-      "order": 1
+      "order": 1,
+      "remember": false
     },
     {
       "name": "USE_STATIONAPI",
       "label": "Use StationAPI",
       "type": "boolean",
       "default": true,
-      "order": 2
+      "order": 2,
+      "remember": false
     },
     {
       "name": "STATIONAPI_VERSION",
@@ -75,28 +80,31 @@
         ],
         "condition": "$USE_STATIONAPI == 'true'"
       },
-      "order": 2
+      "order": 2,
+      "remember": false
     },
     {
       "name": "USE_MIXINS",
       "type": "boolean",
-      "remember": "babric.USE_MIXINS",
       "default": true,
-      "order": 3
+      "order": 3,
+      "remember": false
     },
     {
       "label": "Use AccessWidener",
       "name": "USE_AW",
       "type": "boolean",
       "default": true,
-      "order": 3
+      "order": 3,
+      "remember": false
     },
     {
       "label": "Update Dependencies",
       "name": "UPDATE_DEPENDENCIES",
       "type": "boolean",
       "default": true,
-      "order": 3
+      "order": 3,
+      "remember": false
     },
     {
       "name": "MOD_ID",
@@ -114,13 +122,15 @@
           "lowercase": true
         }
       },
-      "order": 4
+      "order": 4,
+      "remember": false
     },
     {
       "name": "MOD_NAME",
       "type": "string",
       "inheritFrom": "PROJECT_NAME",
-      "order": 4
+      "order": 4,
+      "remember": false
     },
     {
       "name": "CLASS_NAME",
@@ -139,7 +149,8 @@
         }
       },
       "order": 4,
-      "visible": false
+      "visible": false,
+      "remember": false
     },
     {
       "name": "MAIN_CLASS",
@@ -151,12 +162,15 @@
         ],
         "method": "suggestClassName"
       },
-      "order": 4
+      "order": 4,
+      "remember": false
     },
     {
       "name": "LICENSE",
       "type": "license",
-      "order": 5
+      "order": 5,
+      "remember": false,
+      "default": "MIT"
     },
     {
       "label": "creator.ui.optional_settings.label",
@@ -166,16 +180,19 @@
         {
           "name": "DESCRIPTION",
           "type": "string",
-          "default": ""
+          "default": "",
+          "remember": false
         },
         {
           "label": "Author",
           "name": "AUTHOR",
           "type": "string",
-          "default": ""
+          "default": "",
+          "remember": true
         }
       ],
-      "order": 6
+      "order": 6,
+      "remember": false
     },
     {
       "label": "Modrinth Publishing",
@@ -186,7 +203,8 @@
           "label": "Use Modrinth Publishing",
           "name": "USE_MODRINTH_PUBLISHING",
           "type": "boolean",
-          "default": true
+          "default": false,
+          "remember": true
         },
         {
           "label": "Modrinth Slug",
@@ -197,7 +215,8 @@
               "USE_MODRINTH_PUBLISHING"
             ],
             "condition": "$USE_MODRINTH_PUBLISHING == 'true'"
-          }
+          },
+          "remember": false
         },
         {
           "label": "Modrinth Version Name",
@@ -209,23 +228,18 @@
               "USE_MODRINTH_PUBLISHING"
             ],
             "condition": "$USE_MODRINTH_PUBLISHING == 'true'"
-          }
+          },
+          "remember": false
         }
       ],
       "order": 7
     },
     {
-      "name": "JAVA_VERSION",
-      "type": "integer",
-      "order": 30,
-      "default": 17,
-      "visible": false
-    },
-    {
       "name": "JDK",
       "type": "jdk",
       "order": 30,
-      "default": "JAVA_VERSION"
+      "default": 17,
+      "remember": false
     }
   ],
   "files": [
